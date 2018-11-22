@@ -89,17 +89,17 @@ app.use(function(err, req, res, next) {
 
 // io
 let usernum = 0; // 当前用户数
-let user = [];
+// let user = [];
 io.on('connection', function(socket) {
 
   usernum += 1;
   console.log(`${usernum} 个用户已连接`);
   
   socket.on('login', function(data) {
-    user.push({
-      username: data.username,
-      msg: []
-    });
+    // user.push({
+    //   username: data.username,
+    //   msg: [],
+    // });
     
     console.log(`${data.username} connected!`);
     socket.emit('loginsuccess', data);

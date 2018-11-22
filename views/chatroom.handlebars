@@ -9,7 +9,7 @@
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
       #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
+      #messages li { padding: 5px 10px; margin: 20px 20px 20px 20px }
       #messages li:nth-child(odd) { background: #eee; }
       #user {
         width: 200px;
@@ -35,26 +35,41 @@
       <button id="usersubmit">submit</button>
     </div>
     <ul id="messages"></ul>
-    <form action="">
+    <form id="form" action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       $(function() {
-        var socket = io();
+        // 每次刷新页面清除 localstorage
+        window.onbeforeunload = function() {
+          window.localStorage.removeItem('name');
+        }
+        // 判断是否登陆过
+        var hasname = window.localStorage.getItem('name');
+        // console.log(hasname);
+        if (!hasname) {
+          $('#form').hide();
+        } else {
+          $('#user').hide();
+        }
 
+        var socket = io();
+        // 先取个nickname
         $('#usersubmit').click(function() {
           let username = $('#user>input').val();
           if (username) {
             socket.emit('login', { username: username });
             window.localStorage.setItem('name', username);
             $('#user').hide();
+            $('#form').show();
           }
         });
 
         socket.on('loginsuccess', function(data) {
           console.log(`welcome ${data.username}`);
+          $('#messages').append($('<li>').html(`<span>welcome!</span>--<p style="color: red; display: inline-block">${data.username}</p>`));
         })
 
         $('form').submit(function() {
@@ -65,8 +80,10 @@
           return false;
         });
         socket.on('chatroom', function(data) {
-          $('#messages').append($('<li>').text(`${data.username}: ${data.msg}`));
+          let userstr = $('<li>').html(`<p style="color: red; display: inline-block">${data.username}:</p> ${data.msg}`);
+          $('#messages').append(userstr);
         });
+
       });
     </script>
   </body>
