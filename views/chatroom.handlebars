@@ -11,9 +11,29 @@
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #eee; }
+      #user {
+        width: 200px;
+        height: 200px;
+        background-color: rebeccapurple;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        padding-top: 20px;
+      }
+      #usersubmit {
+        display: block;
+        margin: auto;
+      }
     </style>
   </head>
   <body>
+    <div id="user">
+      <span>please enter your name</span>
+      <input name="username" type="text" value="">
+      <button id="usersubmit">submit</button>
+    </div>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
@@ -23,13 +43,29 @@
     <script>
       $(function() {
         var socket = io();
+
+        $('#usersubmit').click(function() {
+          let username = $('#user>input').val();
+          if (username) {
+            socket.emit('login', { username: username });
+            window.localStorage.setItem('name', username);
+            $('#user').hide();
+          }
+        });
+
+        socket.on('loginsuccess', function(data) {
+          console.log(`welcome ${data.username}`);
+        })
+
         $('form').submit(function() {
-          socket.emit('chatroom', $('#m').val());
+          let msg = $('#m').val();
+          let name = window.localStorage.getItem('name');
+          socket.emit('chatroom', { username: name, msg: msg });
           $('#m').val('');
           return false;
         });
-        socket.on('chatroom', function(msg) {
-          $('#messages').append($('<li>').text(msg));
+        socket.on('chatroom', function(data) {
+          $('#messages').append($('<li>').text(`${data.username}: ${data.msg}`));
         });
       });
     </script>

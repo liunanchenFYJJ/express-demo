@@ -88,16 +88,34 @@ app.use(function(err, req, res, next) {
 });
 
 // io
+let usernum = 0; // 当前用户数
+let user = [];
 io.on('connection', function(socket) {
-  console.log('a user connected!');
-  socket.on('chatroom', function(msg) {
-    console.log(`recevied msg: ${msg}`);
-    io.emit('chatroom', msg);
+
+  usernum += 1;
+  console.log(`${usernum} 个用户已连接`);
+  
+  socket.on('login', function(data) {
+    user.push({
+      username: data.username,
+      msg: []
+    });
+    
+    console.log(`${data.username} connected!`);
+    socket.emit('loginsuccess', data);
   });
 
-  // socket.on('disconnect', function() {
-  //   console.log('user disconnected')
-  // });
+  socket.on('chatroom', function(data) {
+    console.log(`from: ${data.username}-recevied msg: ${data.msg}`);
+    io.emit('chatroom', data);
+  });
+
+  socket.on('disconnect', function() {
+    console.log('user disconnected');
+    usernum -= 1;
+    // console.log(`${usernum} 个用户已连接`);
+  });
+
 });
 
 
