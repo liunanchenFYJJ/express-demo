@@ -28,12 +28,16 @@ app.get('/', function(req, res) {
   res.render('home');
 });
 
-app.get('/chatroom', function(req, res) {
-  res.render('chatroom', { layout: null });
+app.get('/profile', function(req, res) {
+  res.render('profile');
 });
 
 app.get('/about', function(req, res) {
   res.render('about', { fortunes: fortune.getFortune() });
+});
+
+app.get('/chatroom', function(req, res) {
+  res.render('chatroom', { layout: null });
 });
 
 app.get('/newsletter', function(req, res) {
