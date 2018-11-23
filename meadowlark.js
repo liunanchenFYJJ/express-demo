@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+const uuidv1 = require('uuid/v1');
 
 var fortune = require('./lib/fortune');
 
@@ -59,6 +60,16 @@ app.get('/newsletter', function(req, res) {
 //   console.log(req.query);
 //   res.status(200).send('success');
 // });
+let getdiary_sql = `SELECT * FROM express_demo_diary;`
+app.get('/getdiary', function(req, res, next) {
+  mysql.getdairy(getdiary_sql, output);
+  function output(data) {
+    res.json({
+      data: data,
+      msg: 'success'
+    });
+  }
+});
 
 // app.post req.body
 var title = '"无中生有"';
@@ -68,6 +79,27 @@ console.log(sql_sentence);
 app.post('/getbooklist', upload.array(), function(req, res, next) {
   // console.log(req.body);
   mysql.getlistquery(sql_sentence, output);
+  function output(data) {
+    // console.log(data[0]);
+    res.json({
+      data: data,
+      msg: 'success'
+    });
+  }
+});
+
+app.post('/adddiary', upload.array(), function(req, res, next) {
+  var adddiary_sql = `INSERT INTO express_demo_diary(
+    express_demo_diary.id,
+    express_demo_diary.title,
+    express_demo_diary.content) 
+  VALUES(
+    "${uuidv1()}",
+    "${req.body.title}",
+    "${req.body.content}")`;
+  console.log(adddiary_sql);
+  // console.log(req.body);
+  mysql.adddiary(adddiary_sql, output);
   function output(data) {
     // console.log(data[0]);
     res.json({
@@ -91,7 +123,7 @@ app.use(function(err, req, res, next) {
   res.render('500');
 });
 
-// io
+// socket.io
 let usernum = 0; // 当前用户数
 // let user = [];
 io.on('connection', function(socket) {

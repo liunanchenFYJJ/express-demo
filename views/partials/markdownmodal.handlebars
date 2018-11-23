@@ -8,6 +8,9 @@
       </div>
       <div class="modal-body">
         <div class="row">
+          <div class="input-group">
+            <input type="text" id="title" placeholder="title">
+          </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div style="border:solid 1px;height:200px;width:100%;" id="result"></div>
           </div>
@@ -18,18 +21,42 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
+        <button id="submit" type="button" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 <script type="text/javascript">
-function compile(){
+  $(function() {
+    $('#submit').click(function() {
+      let title = $('#title').val();
+      let content = $('#result').html();
+      console.log(content);
+      $.ajax({
+        type: 'post',
+        url: 'http://localhost:3000/adddiary',
+        data: {
+          title: title,
+          content: content
+        },
+        success: function(e) {
+          console.log(e.data);
+          $('#myModal').modal('hide');
+          window.location.reload();
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    })
+  });
+  function compile(){
     var text = document.getElementById("content").value;
     var converter = new showdown.Converter();
     var html = converter.makeHtml(text);
     console.log(html);
     console.log(text);
     document.getElementById("result").innerHTML = html;
-}
+  }
 </script>
