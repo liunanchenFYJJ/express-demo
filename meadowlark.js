@@ -25,7 +25,7 @@ app.set('port', process.env.PORT || 3000);
 // 路由 || 中间件 加载顺序 important!
 // app.VERB 普通页面添加路由 express默认忽略大小写/斜杠
 app.get('/', function(req, res) {
-  res.render('home');
+  res.render('home', { title: 'hh', body: 'body' });
 });
 
 app.get('/profile', function(req, res) {
