@@ -7,7 +7,7 @@
       <li class="list-group-item"><i class="fa fa-address-card"></i>&nbsp;<a href="#">bio</a></li>
     </ul>
   </div>
-  <div style="" id="body" class="col-md-10 col-sm-9 col-xs-8"></div>
+  <div id="body" style="overflow:auto;" class="col-md-10 col-sm-9 col-xs-8"></div>
 </div>
 {{> markdownmodal}}
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
@@ -28,22 +28,48 @@
 </script>
 <script>
   $(function() {
+    // console.log(window.body.clientHeight);
+    // console.log(window.body.offsetHeight);
+
     // 模版
     let template = Handlebars.compile($('#context').html());
 
     $.ajax({
       type: 'get',
       url: 'http://localhost:3000/getdiary',
-      data: {},
+      data: { page: 1 },
       success: function(data) {
         // 数据
         console.log(data);
         // 
         $('#body').html(template(data.data));
+        $('#body').height() > window.innerHeight - 40 ? $('#body').css('overflow', 'auto').height(window.innerHeight - 80) : $('#body').height('auto');
       },
       error: function(error) {
         console.log(error);
       }
+    });
+
+
+    //setTimeout(function() {
+      //console.log(window.innerHeight);
+      //console.log($('#body').height());
+      //console.log(document.getElementById('body').offsetHeight);
+      //$('#body').height() > window.innerHeight - 40 ? $('#body').css('overflow', 'auto').height(window.innerHeight - 80) : $('#body').height('auto');
+    //}, 500);
+
+    {{!-- $('#body').scroll(function(e) {
+      console.log(e);
+      console.log($(window).scrollTop());
+      console.log($(document).height());
+      console.log($(document.body).height());
+    }) --}}
+
+
+    //
+    $(window).resize(function() {
+      console.info('changed!');
+      window.location.reload();
     })
   });
 </script>

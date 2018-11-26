@@ -60,8 +60,9 @@ app.get('/newsletter', function(req, res) {
 //   console.log(req.query);
 //   res.status(200).send('success');
 // });
-let getdiary_sql = `SELECT * FROM express_demo_diary;`
 app.get('/getdiary', function(req, res, next) {
+  // let getdiary_sql = `SELECT * FROM express_demo_diary LIMIT ${(req.query.page-1)*8},8;`
+  let getdiary_sql = `SELECT * FROM express_demo_diary;`
   mysql.getdairy(getdiary_sql, output);
   function output(data) {
     res.json({
