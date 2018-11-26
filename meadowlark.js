@@ -7,7 +7,6 @@ const io = require('socket.io')(http);
 const uuidv1 = require('uuid/v1');
 const mysql = require('./db/mysql');
 
-const fortune = require('./lib/fortune');
 
 // url编码
 const bodyParser = require('body-parser');
@@ -28,20 +27,15 @@ app.set('port', process.env.PORT || 3000);
 // 路由 || 中间件 加载顺序 important!
 // app.VERB 普通页面添加路由 express默认忽略大小写/斜杠
 const indexRouter = require('./routes/index');
-// const chatroomRouter = require('./routes/chatroom');
+const chatroomRouter = require('./routes/chatroom');
+const aboutRouter = require('./routes/about');
 app.use('/', indexRouter);
+app.use('/chatroom', chatroomRouter);
+app.use('/about', aboutRouter);
 
 
 app.get('/profile', function(req, res) {
   res.render('profile');
-});
-
-app.get('/about', function(req, res) {
-  res.render('about', { fortunes: fortune.getFortune() });
-});
-
-app.get('/chatroom', function(req, res) {
-  res.render('chatroom', { layout: null });
 });
 
 app.get('/newsletter', function(req, res) {

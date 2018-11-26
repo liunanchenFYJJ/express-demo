@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET chatroom page. */
-router.get('/chatroom', function(req, res, next) {
-  res.render('chatroom');
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('chatroom', { layout: null });
 });
 
 module.exports = router;
