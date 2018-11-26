@@ -28,10 +28,10 @@
     $(function() {
       $('li').each(function() {
         let path_name = window.location.href.split('/')[3];
-        let a_href = $(this).children()[0];
+        let a_href = $(this).children()[0].href;
         
         if (a_href) {
-          let sub_a_href = a_href.href.split('/')[3];
+          let sub_a_href = a_href.split('/')[3];
           if (sub_a_href == path_name) {
             $(this).addClass('active').siblings().removeClass('active');
           }

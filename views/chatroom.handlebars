@@ -38,7 +38,7 @@
           window.localStorage.removeItem('name');
         }
         // 判断是否登陆过
-        var hasname = window.localStorage.getItem('name');
+        let hasname = window.localStorage.getItem('name');
         // console.log(hasname);
         if (!hasname) {
           $('#form').hide();
@@ -47,7 +47,7 @@
           $('#user').hide();
         }
 
-        var socket = io();
+        const socket = io();
         // 先取个nickname
         $('#user input').keyup(function(e) {
           if (e.which == 13) {

@@ -23,8 +23,8 @@
     $('.newsletterForm').on('submit', function (evt) {
       console.log('sd');
       evt.preventDefault();
-      var action = $(this).attr('action');
-      var $container = $(this).closest('.formContainer'); $.ajax({
+      let action = $(this).attr('action');
+      let $container = $(this).closest('.formContainer'); $.ajax({
         url: action,
         type: 'POST',
         success: function (data) {

@@ -8,14 +8,14 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="input-group">
-            <input type="text" id="title" placeholder="title">
+          <div style="margin-bottom: 1em;" class="col-md-12 col-sm-12 col-xs-12">
+            <input type="text" id="title" class="form-control span12" placeholder="title" aria-describedby="basic-addon1">
           </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
+          {{!-- <div class="col-md-6 col-sm-6 col-xs-12">
             <div style="border:solid 1px;height:200px;width:100%;" id="result"></div>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <textarea id="content" style="height:200px;width:100%;" onkeyup="compile()"></textarea>
+          </div> --}}
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <textarea id="content" style="height:200px;width:100%;" onkeyup=""></textarea>
           </div>
         </div>
       </div>
@@ -31,7 +31,8 @@
   $(function() {
     $('#submit').click(function() {
       let title = $('#title').val();
-      let content = $('#result').html();
+      {{!-- let content = $('#result').html(); --}}
+      let content = $('#content').val();
       console.log(content);
       $.ajax({
         type: 'post',
@@ -51,12 +52,12 @@
       });
     })
   });
-  function compile(){
-    var text = document.getElementById("content").value;
-    var converter = new showdown.Converter();
-    var html = converter.makeHtml(text);
+  {{!-- function compile(){
+    let text = document.getElementById("content").value;
+    let converter = new showdown.Converter();
+    let html = converter.makeHtml(text);
     console.log(html);
     console.log(text);
     document.getElementById("result").innerHTML = html;
-  }
+  } --}}
 </script>

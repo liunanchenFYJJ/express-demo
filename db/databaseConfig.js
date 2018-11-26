@@ -5,7 +5,8 @@ const config = {
   user: 'root',
   password: '123456',
   database: 'python_demo',
-  multipleStatements: true
+  multipleStatements: true,
+  timezone: '08:00' // 配置时区
 };
 
 exports.config = config;

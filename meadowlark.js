@@ -1,23 +1,25 @@
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+const express = require('express');
+const app = express();
+// websocket socket.io
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+// mysql
 const uuidv1 = require('uuid/v1');
+const mysql = require('./db/mysql');
 
-var fortune = require('./lib/fortune');
+const fortune = require('./lib/fortune');
 
-var mysql = require('./db/mysql');
 // url编码
-var bodyParser = require('body-parser');
-var multer = require('multer');
-var upload = multer();
+const bodyParser = require('body-parser');
+const multer = require('multer');
+const upload = multer();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // static中间件 public文件夹中静态资源
 app.use(express.static(`${__dirname}/public`));
-// 视图引擎
-var handlebars = require('express3-handlebars').create({ defaultLayout: 'main' });
+// 视图引擎handlebars
+const handlebars = require('express3-handlebars').create({ defaultLayout: 'main' });
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
@@ -25,9 +27,10 @@ app.set('port', process.env.PORT || 3000);
 // 中间件处理 静态文件 & 视图
 // 路由 || 中间件 加载顺序 important!
 // app.VERB 普通页面添加路由 express默认忽略大小写/斜杠
-app.get('/', function(req, res) {
-  res.render('home', { title: 'hh', body: 'body' });
-});
+const indexRouter = require('./routes/index');
+// const chatroomRouter = require('./routes/chatroom');
+app.use('/', indexRouter);
+
 
 app.get('/profile', function(req, res) {
   res.render('profile');
@@ -42,7 +45,7 @@ app.get('/chatroom', function(req, res) {
 });
 
 app.get('/newsletter', function(req, res) {
-  res.render('newsletter', { csrf: 'csrf token goes here' });
+  res.render('newsletter');
 });
 
 // app.post('/process', function(req, res){
@@ -62,7 +65,7 @@ app.get('/newsletter', function(req, res) {
 // });
 app.get('/getdiary', function(req, res, next) {
   // let getdiary_sql = `SELECT * FROM express_demo_diary LIMIT ${(req.query.page-1)*8},8;`
-  let getdiary_sql = `SELECT * FROM express_demo_diary;`
+  let getdiary_sql = `SELECT * FROM express_demo_diary ORDER BY createDate DESC;`
   mysql.getdairy(getdiary_sql, output);
   function output(data) {
     res.json({
@@ -73,8 +76,8 @@ app.get('/getdiary', function(req, res, next) {
 });
 
 // app.post req.body
-var title = '"无中生有"';
-var sql_sentence = `SELECT * FROM tb_book where bookName = ${title}`;
+let title = '"无中生有"';
+let sql_sentence = `SELECT * FROM tb_book where bookName = ${title}`;
 console.log(sql_sentence);
 
 app.post('/getbooklist', upload.array(), function(req, res, next) {
@@ -90,7 +93,7 @@ app.post('/getbooklist', upload.array(), function(req, res, next) {
 });
 
 app.post('/adddiary', upload.array(), function(req, res, next) {
-  var adddiary_sql = `INSERT INTO express_demo_diary(
+  let adddiary_sql = `INSERT INTO express_demo_diary(
     express_demo_diary.id,
     express_demo_diary.title,
     express_demo_diary.content) 
