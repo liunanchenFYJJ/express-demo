@@ -1,14 +1,9 @@
 <div class="row" style="padding-top: 20px;">
   <div class="col-md-2 col-sm-3 col-xs-4">
-    <img src="/images/cat.png" alt="">
-    <ul class="list-group">
-      <li class="list-group-item"><i class="fa fa-github-square"></i>&nbsp;<a href="https://github.com/liunanchenFYJJ" target="_blank">liunanchenFYJJ</a></li>
-      <li class="list-group-item"><i class="fa fa-envelope-square"></i>&nbsp;<a href="mailto:liunan_chen@163.com">liunan_chen@163.com</a></li>
-      <li class="list-group-item"><i class="fa fa-address-card"></i>&nbsp;<a href="https://i.51job.com/resume/standard_resume.php?lang=c&resumeid=382134155" target="_blank">bio</a></li>
-    </ul>
+    <img src="/images/comment.gif" alt="">
+    <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">添加</button>
   </div>
   <div id="body" style="overflow:auto;" class="col-md-10 col-sm-9 col-xs-8"></div>
-  <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">edit</button>
 </div>
 {{> markdownmodal}}
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
@@ -22,7 +17,7 @@
       <div class="panel-body">
         \{{content}}
         <button style="float:right;display:inline-block;" type="button" class="btn btn-primary btn-xs">learn more</button>
-        <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">edit</button>
+        {{!-- <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">edit</button> --}}
       </div>
     </div>
   \{{/each}}
@@ -50,7 +45,7 @@
       }
     });
 
-    //
+    // resize
     $(window).resize(function() {
       window.location.reload();
     })

@@ -18,10 +18,10 @@
         <label class="sr-only" for="exampleInputName2">text</label>
         <div class="row">
           <div class="col-md-11 col-sm-11 col-xs-11">
-            <input type="text" class="form-control input-lg" id="m" autocomplete="off" placeholder="">
+            <input type="text" class="form-control" id="m" autocomplete="off" placeholder="">
           </div>
-          <div class="col-md-1 col-sm-1 col-xs-1">
-            <button class="btn btn-primary btn-lg">Send</button>
+          <div class="sbtn" class="col-md-1 col-sm-1 col-xs-1">
+            <button class="btn btn-primary">Send</button>
           </div>
         </div>
       </div>
@@ -39,7 +39,6 @@
         }
         // 判断是否登陆过
         let hasname = window.localStorage.getItem('name');
-        // console.log(hasname);
         if (!hasname) {
           $('#form').hide();
           // $('#mask').hide();
@@ -64,7 +63,7 @@
 
         socket.on('loginsuccess', function(data) {
           console.log(`welcome ${data.username}`);
-          $('#messages').append($('<li>').html(`<span>welcome!</span>--<p style="color: red; display: inline-block">${data.username}</p>`));
+          $('#messages').append($('<li>').html(`<h3>welcome!</h3><p style="color: red; display: inline-block">${data.username}</p>`));
         })
 
         $('form').submit(function() {

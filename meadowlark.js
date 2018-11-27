@@ -28,10 +28,12 @@ app.set('port', process.env.PORT || 3000);
 // app.VERB 普通页面添加路由 express默认忽略大小写/斜杠
 const indexRouter = require('./routes/index');
 const chatroomRouter = require('./routes/chatroom');
+const msgboradRouter = require('./routes/msgborad');
 const aboutRouter = require('./routes/about');
 app.use('/', indexRouter);
 app.use('/chatroom', chatroomRouter);
 app.use('/about', aboutRouter);
+app.use('/msgborad', msgboradRouter);
 
 
 app.get('/profile', function(req, res) {
@@ -89,11 +91,11 @@ app.post('/getbooklist', upload.array(), function(req, res, next) {
 app.post('/adddiary', upload.array(), function(req, res, next) {
   let adddiary_sql = `INSERT INTO express_demo_diary(
     express_demo_diary.id,
-    express_demo_diary.title,
+    express_demo_diary.name,
     express_demo_diary.content) 
   VALUES(
     "${uuidv1()}",
-    "${req.body.title}",
+    "${req.body.name}",
     "${req.body.content}")`;
   console.log(adddiary_sql);
   // console.log(req.body);
