@@ -1,0 +1,22 @@
+{
+  "apps": {
+    "name": "mysite",
+    "script": "./meadowlark.js",
+    "watch": true,
+    "ignore_watch": [
+      "node_modules",
+      "logs"
+    ],
+    "restart_delay": 60,
+    "env": {
+      "NODE_ENV": "dev"
+    },
+    "env_prod": {
+      "NODE_ENV": "prod"
+    },
+    "env_test": {
+      "NODE_ENV": "test",
+      "REMOTE_ADDR": ""
+    }
+  }
+}

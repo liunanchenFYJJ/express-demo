@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=dev node meadowlark",
-    "prod": "NODE_ENV=prod node meadowlark"
+    "start": "NODE_ENV=dev nodemon meadowlark",
+    "prod": "NODE_ENV=prod node meadowlark",
+    "pm2": "pm2 start pm2.json --env env",
+    "pm2_prod": "pm2 start pm2.json --env prod"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -18,5 +20,6 @@
     "mysql": "^2.16.0",
     "socket.io": "^2.1.1",
     "uuid": "^3.3.2"
-  }
+  },
+  "devDependencies": {}
 }
