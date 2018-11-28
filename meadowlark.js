@@ -7,7 +7,7 @@ const io = require('socket.io')(http);
 const uuidv1 = require('uuid/v1');
 const mysql = require('./db/mysql');
 // process.env.NODE_ENV = 'dev';
-console.log(process.env);
+// console.log(process.env);
 
 
 // url编码
@@ -76,7 +76,7 @@ app.get('/getdiary', function(req, res, next) {
 // app.post req.body
 let title = '"无中生有"';
 let sql_sentence = `SELECT * FROM tb_book where bookName = ${title}`;
-console.log(sql_sentence);
+// console.log(sql_sentence);
 
 app.post('/getbooklist', upload.array(), function(req, res, next) {
   // console.log(req.body);
@@ -99,7 +99,7 @@ app.post('/adddiary', upload.array(), function(req, res, next) {
     "${uuidv1()}",
     "${req.body.name}",
     "${req.body.content}")`;
-  console.log(adddiary_sql);
+  // console.log(adddiary_sql);
   // console.log(req.body);
   mysql.adddiary(adddiary_sql, output);
   function output(data) {
@@ -120,7 +120,7 @@ app.use(function(req, res, next) {
 
 // 500
 app.use(function(err, req, res, next) {
-  console.error(err.stack);
+  // console.error(err.stack);
   res.status(500);
   res.render('500');
 });

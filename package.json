@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node meadowlark"
+    "start": "NODE_ENV=dev node meadowlark",
+    "prod": "NODE_ENV=prod node meadowlark"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
