@@ -6,6 +6,8 @@ const io = require('socket.io')(http);
 // mysql
 const uuidv1 = require('uuid/v1');
 const mysql = require('./db/mysql');
+// process.env.NODE_ENV = 'dev';
+console.log(process.env);
 
 
 // url编码

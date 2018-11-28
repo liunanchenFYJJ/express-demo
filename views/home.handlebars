@@ -8,14 +8,14 @@
     </ul>
   </div>
   <div id="body" style="overflow:auto;" class="col-md-10 col-sm-9 col-xs-8"></div>
-  <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">edit</button>
 </div>
 {{> markdownmodal}}
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/handlebars.js/4.0.12/handlebars.min.js"></script>
 <script id="context" type="text/x-handlebars-template">
   \{{#each this}}
-    <div class="panel panel-default">
+    to be continue。。。
+    {{!-- <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title" style="display:inline-block;">\{{title}}</h3><p style="float:right;display:inline-block;">\{{createDate}}</p>
       </div>
@@ -24,7 +24,7 @@
         <button style="float:right;display:inline-block;" type="button" class="btn btn-primary btn-xs">learn more</button>
         <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">edit</button>
       </div>
-    </div>
+    </div> --}}
   \{{/each}}
 </script>
 <script>

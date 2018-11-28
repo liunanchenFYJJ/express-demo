@@ -1,7 +1,7 @@
 <div class="row" style="padding-top: 20px;">
   <div class="col-md-2 col-sm-3 col-xs-4">
     <img src="/images/comment.gif" alt="">
-    <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">添加</button>
+    <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">添加留言</button>
   </div>
   <div id="body" style="overflow:auto;" class="col-md-10 col-sm-9 col-xs-8"></div>
 </div>
@@ -12,11 +12,11 @@
   \{{#each this}}
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title" style="display:inline-block;">\{{title}}</h3><p style="float:right;display:inline-block;">\{{createDate}}</p>
+        <h3 class="panel-title" style="display:inline-block;">\{{name}}</h3><p style="float:right;display:inline-block;">\{{createDate}}</p>
       </div>
       <div class="panel-body">
         \{{content}}
-        <button style="float:right;display:inline-block;" type="button" class="btn btn-primary btn-xs">learn more</button>
+        {{!-- <button style="float:right;display:inline-block;" type="button" class="btn btn-primary btn-xs">learn more</button> --}}
         {{!-- <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">edit</button> --}}
       </div>
     </div>
