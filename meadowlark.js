@@ -7,7 +7,7 @@ const io = require('socket.io')(http);
 const uuidv1 = require('uuid/v1');
 const mysql = require('./db/mysql');
 // process.env.NODE_ENV = 'dev';
-// console.log(process.env);
+// console.log(mysql.query);
 
 
 // url编码
@@ -64,7 +64,7 @@ app.get('/newsletter', function(req, res) {
 app.get('/getdiary', function(req, res, next) {
   // let getdiary_sql = `SELECT * FROM express_demo_diary LIMIT ${(req.query.page-1)*8},8;`
   let getdiary_sql = `SELECT * FROM express_demo_diary ORDER BY createDate DESC;`
-  mysql.getdairy(getdiary_sql, output);
+  mysql.query(getdiary_sql, output);
   function output(data) {
     res.json({
       data: data,
@@ -80,7 +80,7 @@ let sql_sentence = `SELECT * FROM tb_book where bookName = ${title}`;
 
 app.post('/getbooklist', upload.array(), function(req, res, next) {
   // console.log(req.body);
-  mysql.getlistquery(sql_sentence, output);
+  mysql.query(sql_sentence, output);
   function output(data) {
     // console.log(data[0]);
     res.json({
@@ -101,7 +101,7 @@ app.post('/adddiary', upload.array(), function(req, res, next) {
     "${req.body.content}")`;
   // console.log(adddiary_sql);
   // console.log(req.body);
-  mysql.adddiary(adddiary_sql, output);
+  mysql.query(adddiary_sql, output);
   function output(data) {
     // console.log(data[0]);
     res.json({
@@ -158,5 +158,5 @@ io.on('connection', function(socket) {
 
 
 http.listen(app.get('port'), function() {
-  console.log(`express started on http://localhost${app.get('port')}>>>`)
+  console.log(`express started on http://localhost${app.get('host')}:${app.get('port')}>>>`)
 });
