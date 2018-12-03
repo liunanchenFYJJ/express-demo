@@ -158,5 +158,5 @@ io.on('connection', function(socket) {
 
 
 http.listen(app.get('port'), function() {
-  console.log(`express started on http://localhost${app.get('host')}:${app.get('port')}>>>`)
+  console.log(`express started on port:${app.get('port')}>>>`)
 });

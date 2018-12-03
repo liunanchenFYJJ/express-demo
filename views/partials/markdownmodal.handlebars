@@ -38,8 +38,7 @@
       }
       $.ajax({
         type: 'post',
-        // url: 'http://localhost:3000/adddiary',
-        url: 'http://173.82.212.76:3000/adddiary',
+        url: `http://${location.host}/adddiary`,
         data: {
           name: name,
           content: content
