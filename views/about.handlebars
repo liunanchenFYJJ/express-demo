@@ -2,6 +2,14 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
 	 x="0px" y="0px" width="166px" height="33px" viewBox="-1.432 -2.112 166 33" enable-background="new -1.432 -2.112 166 33"
 	 xml:space="preserve">
+<style>
+  path {
+    {{!-- fill: palegreen; --}}
+  }
+  path:hover {
+    fill: rebeccapurple;
+  }
+</style>
 <defs>
 </defs>
 <path id="test" fill="#EC008C" d="M7.102,0v6.403C7.711,5.839,8.37,5.416,9.079,5.134c0.709-0.282,1.468-0.423,2.276-0.423
@@ -40,19 +48,11 @@
 	 M156.041,11.004c0-0.855-0.073-1.43-0.22-1.723s-0.437-0.439-0.87-0.439c-0.422,0-0.706,0.132-0.853,0.396s-0.22,0.853-0.22,1.767
 	V22.43c0,0.949,0.07,1.573,0.211,1.872s0.41,0.448,0.809,0.448c0.457,0,0.762-0.167,0.914-0.501s0.229-1.151,0.229-2.452V11.004z"/>
 </svg>
-<style>
-  path {
-    fill: palegreen;
-  }
-  #test:hover {
-    fill: rebeccapurple;
-  }
-</style>
 <script>
-  let svg = document.getElementById('test');
+  let svg = document.getElementsByTagName('path')[0];
   svg.addEventListener('click', function(e) {
-    // console.log(this);
     // console.log(e);
-    this.setAttribute('fill', '#eeddff');
+    svg.setAttribute('fill', '#fff');
+    console.log(this.getAttribute('fill'));
   }, false);
 </script>
