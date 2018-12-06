@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="&#x56FE;&#x5C42;_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
 	 y="0px" width="240px" height="56.103px" viewBox="0 0 240 56.103" style="enable-background:new 0 0 240 56.103;"
 	 xml:space="preserve">
 <style type="text/css">
   #test:hover {
     fill: rebeccapurple;
+    cursor: pointer;
   }
 </style>
 <rect x="8" y="2.5" style="fill:none;" width="285.589" height="53.603"/>

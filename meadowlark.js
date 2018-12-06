@@ -32,10 +32,13 @@ const indexRouter = require('./routes/index');
 const chatroomRouter = require('./routes/chatroom');
 const msgboradRouter = require('./routes/msgborad');
 const aboutRouter = require('./routes/about');
+const svgplaygroundRouter = require('./routes/svgplayground');
+
 app.use('/', indexRouter);
 app.use('/chatroom', chatroomRouter);
 app.use('/about', aboutRouter);
 app.use('/msgborad', msgboradRouter);
+app.use('/svgplayground', svgplaygroundRouter);
 
 
 app.get('/profile', function(req, res) {
