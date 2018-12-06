@@ -1,6 +1,6 @@
 const mysql = require('mysql');
-const databaseConfig = require('./databaseConfig');
-const pool = mysql.createPool({ ...databaseConfig.config });
+const config = require('./databaseConfig');
+const pool = mysql.createPool({ ...config.config });
 
 exports.query = function(sql, callback) {
   pool.getConnection((error, connection) => {

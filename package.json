@@ -6,7 +6,8 @@
     "start": "NODE_ENV=dev nodemon meadowlark",
     "prod": "NODE_ENV=prod node meadowlark",
     "pm2": "pm2 start pm2.json --env env",
-    "pm2_prod": "pm2 start pm2.json --env prod"
+    "pm2_prod": "pm2 start pm2.json --env prod",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -21,5 +22,7 @@
     "socket.io": "^2.1.1",
     "uuid": "^3.3.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
 }

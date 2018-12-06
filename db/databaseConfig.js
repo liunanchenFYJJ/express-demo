@@ -21,4 +21,6 @@ if (process.env.NODE_ENV == 'dev') {
   };
 }
 
-exports.config = config;
+module.exports = {
+  config
+}
