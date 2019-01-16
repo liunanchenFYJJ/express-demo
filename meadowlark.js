@@ -31,6 +31,7 @@ app.set('port', process.env.PORT || 3000);
 const indexRouter = require('./routes/index');
 const chatroomRouter = require('./routes/chatroom');
 const msgboradRouter = require('./routes/msgborad');
+const newarticleRouter = require('./routes/newarticle');
 const aboutRouter = require('./routes/about');
 const svgplaygroundRouter = require('./routes/svgplayground');
 
@@ -38,6 +39,7 @@ app.use('/', indexRouter);
 app.use('/chatroom', chatroomRouter);
 app.use('/about', aboutRouter);
 app.use('/msgborad', msgboradRouter);
+app.use('/newarticle', newarticleRouter);
 app.use('/svgplayground', svgplaygroundRouter);
 
 
