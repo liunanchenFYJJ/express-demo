@@ -5,6 +5,7 @@ const pool = mysql.createPool({ ...config.config });
 exports.query = function(sql, callback) {
   pool.getConnection((error, connection) => {
     if (error) {
+      console.log(error);
       console.log('mysql failed connect...');
     } else {
       console.log('mysql connect successfully!');

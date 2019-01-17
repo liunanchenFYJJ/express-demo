@@ -1,11 +1,11 @@
 let config = null;
 if (process.env.NODE_ENV == 'dev') {
   config = {
-    host: 'localhost',
+    host: '192.168.1.38',
     port: 3306,
     user: 'root',
     password: '123456',
-    database: 'python_demo',
+    database: 'mysite',
     multipleStatements: true,
     timezone: '08:00' // 配置时区
   };
