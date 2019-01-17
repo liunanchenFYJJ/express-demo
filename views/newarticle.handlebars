@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>new article</title>
+    <style>
+        html {
+            font-size: 16px;
+        }
+        #submit {
+            width: 94%;
+            background-color: royalblue;
+            border-radius: 4px;
+            height: 1.6rem;
+            position: absolute;
+            left: 0;
+            transform: translate(3%, 50%);
+        }
+    </style>
 </head>
 <body>
-    <textarea name="content" id="editor">
-        <p>ppp</p>
-    </textarea>
+    <textarea name="content" id="editor"></textarea>
     <button id="submit">submit</button>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
@@ -24,15 +36,23 @@
             $('#submit').on('click', function() {
                 myEditor.then( editor => {
                     console.log(editor.getData());
+                    // todo: 正则来验证输入合法性
+                    if (editor.getData() == '<p>&nbsp;</p>') {
+                        return;
+                    };
                     $.ajax({
-                        url: '',
-                        data: {},
+                        url: `http://${location.host}/addArticle`,
+                        data: {
+                            article: editor.getData(),
+                            createBy: 'cln'
+                        },
                         type: 'POST',
-                        success: function() {
-
+                        success: function(e) {
+                            console.log(e);
+                            window.location.href = '/';
                         },
                         error: function() {
-                            
+                            console.log(e);
                         }
                     })
                 } )

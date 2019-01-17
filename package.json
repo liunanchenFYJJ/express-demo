@@ -5,7 +5,7 @@
   "scripts": {
     "start": "set NODE_ENV=dev&&node meadowlark",
     "prod_win": "set NODE_ENV=prod&&node meadowlark",
-    "prod_mac": "NODE_ENV=prod && node meadowlark",
+    "prod_mac": "NODE_ENV=prod node meadowlark",
     "pm2": "pm2 start pm2.json --env env",
     "pm2_prod": "pm2 start pm2.json --env prod",
     "test": "jest"

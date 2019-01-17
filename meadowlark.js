@@ -117,13 +117,13 @@ app.post('/adddiary', upload.array(), function(req, res, next) {
 });
 
 // 增加新文章
-app.post('addArticle', upload.array(), function(req, res, next) {
+app.post('/addArticle', upload.array(), function(req, res, next) {
   let addArticle_sql = `INSERT INTO express_demo_article(
     express_demo_article.articleId,
     express_demo_article.article,
     express_demo_article.createBy) 
   VALUES(
-    "${uuidv1()}",
+    CURRENT_TIME,
     "${req.body.article}",
     "${req.body.createBy}")`;
   mysql.query(addArticle_sql, output);
