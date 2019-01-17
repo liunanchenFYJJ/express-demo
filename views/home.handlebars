@@ -15,17 +15,17 @@
 <script src="https://cdn.bootcss.com/handlebars.js/4.0.12/handlebars.min.js"></script>
 <script id="context" type="text/x-handlebars-template">
   \{{#each this}}
-    to be continue。。。
-    {{!-- <div class="panel panel-default">
+    <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title" style="display:inline-block;">\{{title}}</h3><p style="float:right;display:inline-block;">\{{createDate}}</p>
       </div>
       <div class="panel-body">
-        \{{content}}
+        {{!-- \{{article}} --}}
+        loading...
         <button style="float:right;display:inline-block;" type="button" class="btn btn-primary btn-xs">learn more</button>
         <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">edit</button>
       </div>
-    </div> --}}
+    </div>
   \{{/each}}
 </script>
 <script>
@@ -41,12 +41,17 @@
 
     $.ajax({
       type: 'get',
-      url: `http://${location.host}/getdiary`,
+      url: `http://${location.host}/getArticleList`,
       data: { page: 1 },
       success: function(data) {
+        console.log(data.data);
         // 数据
         $('#body').html(template(data.data));
         $('#body').height() > window.innerHeight - 40 ? $('#body').css('overflow', 'auto').height(window.innerHeight - 80) : $('#body').height('auto');
+        // handlebars渲染纯文本，手动渲染富文本
+        $('.panel-body').each(function(i) {
+          $(this).html(data.data[i].article);
+        });
       },
       error: function(error) {
         console.log(error);

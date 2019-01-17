@@ -135,6 +135,18 @@ app.post('/addArticle', upload.array(), function(req, res, next) {
   }
 });
 
+// 获取文章 getArticleList
+app.get('/getArticleList', function(req, res, next) {
+  let getArticleList_sql = 'SELECT * FROM express_demo_article ORDER BY articleId DESC'; 
+  mysql.query(getArticleList_sql, output);
+  function output(data) {
+    res.json({
+      data: data,
+      msg: 'success'
+    });
+  }
+});
+
 // 区别于普通页面，中间件
 // 404
 app.use(function(req, res, next) {
