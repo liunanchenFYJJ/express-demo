@@ -116,6 +116,25 @@ app.post('/adddiary', upload.array(), function(req, res, next) {
   }
 });
 
+// 增加新文章
+app.post('addArticle', upload.array(), function(req, res, next) {
+  let addArticle_sql = `INSERT INTO express_demo_article(
+    express_demo_article.articleId,
+    express_demo_article.article,
+    express_demo_article.createBy) 
+  VALUES(
+    "${uuidv1()}",
+    "${req.body.article}",
+    "${req.body.createBy}")`;
+  mysql.query(addArticle_sql, output);
+  function output(data) {
+    res.json({
+      data: data,
+      msg: 'success'
+    })
+  }
+});
+
 // 区别于普通页面，中间件
 // 404
 app.use(function(req, res, next) {

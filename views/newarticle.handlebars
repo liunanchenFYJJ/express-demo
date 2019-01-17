@@ -24,6 +24,17 @@
             $('#submit').on('click', function() {
                 myEditor.then( editor => {
                     console.log(editor.getData());
+                    $.ajax({
+                        url: '',
+                        data: {},
+                        type: 'POST',
+                        success: function() {
+
+                        },
+                        error: function() {
+                            
+                        }
+                    })
                 } )
             })
         })
