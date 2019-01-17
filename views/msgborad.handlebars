@@ -1,7 +1,7 @@
 <div class="row" style="padding-top: 20px;">
   <div class="col-md-2 col-sm-3 col-xs-4">
     <img src="/images/comment.gif" alt="">
-    <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">添加留言</button>
+    <button id="btn" style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">添加留言</button>
   </div>
   <div id="body" style="overflow:auto;" class="col-md-10 col-sm-9 col-xs-8"></div>
 </div>
@@ -15,7 +15,7 @@
         <h3 class="panel-title" style="display:inline-block;">\{{name}}</h3><p style="float:right;display:inline-block;">\{{createDate}}</p>
       </div>
       <div class="panel-body">
-        \{{content}}
+        {{!-- \{{content}} --}}
         {{!-- <button style="float:right;display:inline-block;" type="button" class="btn btn-primary btn-xs">learn more</button> --}}
         {{!-- <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">edit</button> --}}
       </div>
@@ -39,6 +39,10 @@
         // 数据
         $('#body').html(template(data.data));
         $('#body').height() > window.innerHeight - 40 ? $('#body').css('overflow', 'auto').height(window.innerHeight - 80) : $('#body').height('auto');
+        // handlebars渲染纯文本，手动渲染富文本
+        $('.panel-body').each(function(i) {
+          $(this).html(data.data[i].content);
+        });
       },
       error: function(error) {
         console.log(error);
