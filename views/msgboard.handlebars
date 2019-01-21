@@ -6,8 +6,7 @@
   <div id="body" style="overflow:auto;" class="col-md-10 col-sm-9 col-xs-8"></div>
 </div>
 {{> markdownmodal}}
-<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/handlebars.js/4.0.12/handlebars.min.js"></script>
+<script data-main="/javascripts/main" src="../public/lib/require.js" defer async="true"></script>
 <script id="context" type="text/x-handlebars-template">
   \{{#each this}}
     <div class="panel panel-default">
@@ -21,33 +20,4 @@
       </div>
     </div>
   \{{/each}}
-</script>
-<script>
-  $(function() {
-    // timeformat
-    Handlebars.registerHelper("timeformat", function(time) {
-      return time.substr(0, time.length - 14);
-    })
-    // 模版
-    let template = Handlebars.compile($('#context').html());
-
-    $.ajax({
-      type: 'get',
-      url: `http://${location.host}/getdiary`,
-      data: { page: 1 },
-      success: function(data) {
-        // 数据
-        $('#body').html(template(data.data));
-        $('#body').height() > window.innerHeight - 40 ? $('#body').css('overflow', 'auto').height(window.innerHeight - 80) : $('#body').height('auto');
-      },
-      error: function(error) {
-        console.log(error);
-      }
-    });
-
-    // resize
-    $(window).resize(function() {
-      window.location.reload();
-    })
-  });
 </script>

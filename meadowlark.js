@@ -30,7 +30,7 @@ app.set('port', process.env.PORT || 3000);
 // app.VERB 普通页面添加路由 express默认忽略大小写/斜杠
 const indexRouter = require('./routes/index');
 const chatroomRouter = require('./routes/chatroom');
-const msgboradRouter = require('./routes/msgborad');
+const msgboardRouter = require('./routes/msgboard');
 const newarticleRouter = require('./routes/newarticle');
 const aboutRouter = require('./routes/about');
 const svgplaygroundRouter = require('./routes/svgplayground');
@@ -38,7 +38,7 @@ const svgplaygroundRouter = require('./routes/svgplayground');
 app.use('/', indexRouter);
 app.use('/chatroom', chatroomRouter);
 app.use('/about', aboutRouter);
-app.use('/msgborad', msgboradRouter);
+app.use('/msgboard', msgboardRouter);
 app.use('/newarticle', newarticleRouter);
 app.use('/svgplayground', svgplaygroundRouter);
 
