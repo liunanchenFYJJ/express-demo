@@ -1,19 +1,13 @@
-// For any third party dependencies, like jQuery, place them in the lib folder.
-
-// Configure loading modules from the lib directory,
-// except for 'app' ones, which are in a sibling
-// directory.
 requirejs.config({
     baseUrl: '/lib',
     paths: {
-        // javascripts: '../javascripts',
         jquery: 'jquery.min',
         bootstrap: 'bootstrap.min',
-        handlebars: 'handlebars.min'
+        // showdown: 'showdown'
     },
     shim: {
-        'jquery': {
-            exports: '$'
+        jquery: {
+          exports: 'jquery'
         },
         bootstrap: {
           deps: ['jquery']
@@ -21,12 +15,7 @@ requirejs.config({
     }
 });
 
-// Start loading the main app file. Put all of
-// your application logic in there.
-
-requirejs(['jquery', 'bootstrap'], function($, bootstrap, handlebars) {
-  console.log('layout');
-
+requirejs(['jquery', 'bootstrap'], function($) {
   $(function() {
     $('li').each(function() {
       let path_name = window.location.href.split('/')[3];

@@ -33,5 +33,30 @@ requirejs(['jquery', 'handlebars'], function($, Handlebars) {
         $(window).resize(function() {
           window.location.reload();
         })
+
+        // modual
+        $('#submit').click(function() {
+          let name = $('#name').val();
+          let content = $('#content').val();
+          if (name == '' || content == '') {
+            console.log('不可为空');
+            return;
+          }
+          $.ajax({
+            type: 'post',
+            url: `http://${location.host}/adddiary`,
+            data: {
+              name: name,
+              content: content
+            },
+            success: function(e) {
+              $('#myModal').modal('hide');
+              window.location.reload();
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        });
     });
 });
