@@ -20,9 +20,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // static中间件 public文件夹中静态资源
 app.use(express.static(`${__dirname}/public`));
 // 视图引擎handlebars
-const handlebars = require('express3-handlebars').create({ defaultLayout: 'main' });
-app.engine('handlebars', handlebars.engine);
-app.set('view engine', 'handlebars');
+const handlebars = require('express3-handlebars').create({
+  defaultLayout: 'main',
+  extname: '.hbs'
+});
+app.engine('.hbs', handlebars.engine);
+app.set('view engine', '.hbs');
 app.set('port', process.env.PORT || 3000);
 
 // 中间件处理 静态文件 & 视图
