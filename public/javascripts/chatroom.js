@@ -1,11 +1,20 @@
 requirejs.config({
     baseUrl: '/lib',
     paths: {
-        jquery: 'jquery.min'
+        jquery: 'jquery.min',
+        bootstrap: 'bootstrap.min'
+    },
+    shim: {
+        jquery: {
+            exports: 'jquery'
+        },
+        bootstrap: {
+            deps: 'jquery'
+        }
     }
 });
 
-requirejs([jquery], function($) {
+requirejs(['jquery'], function($) {
     $(function() {
         // 每次刷新页面清除 localstorage
         window.onbeforeunload = function() {

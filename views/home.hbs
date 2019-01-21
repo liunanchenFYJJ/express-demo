@@ -10,7 +10,6 @@
   </div>
   <div id="body" style="overflow:auto;" class="col-md-10 col-sm-9 col-xs-8"></div>
 </div>
-{{!-- {{> markdownmodal}} --}}
 <script data-main="/javascripts/home" src="/lib/require.js" defer async="true"></script>
 <script id="context" type="text/x-handlebars-template">
   \{{#each this}}
@@ -20,7 +19,7 @@
       </div>
       <div class="panel-body">
         {{!-- \{{article}} --}}
-        loading...
+        {{!-- loading... --}}
         <button style="float:right;display:inline-block;" type="button" class="btn btn-primary btn-xs">learn more</button>
         <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">edit</button>
       </div>
