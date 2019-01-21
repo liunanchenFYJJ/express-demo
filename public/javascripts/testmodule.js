@@ -1,4 +1,9 @@
-define(function(require) {
+// 定义一个方法 且 依赖于 jquery
+define(['jquery'], function($) {
     'use strict';
-    console.log('test module');
+    let add = function(x, y) {
+        console.log($);
+        return x + y;
+    }
+    return { add };
 });

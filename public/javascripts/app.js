@@ -1,15 +1,22 @@
-// For any third party dependencies, like jQuery, place them in the lib folder.
-
-// Configure loading modules from the lib directory,
-// except for 'app' ones, which are in a sibling
-// directory.
+// 入口
+console.log('im in>>>')
 requirejs.config({
     baseUrl: 'lib',
     paths: {
-        test: '../javascripts/testmodule'
+        jquery: 'jquery.min',
+        test: '../javascripts/testmodule',
     }
 });
 
-// Start loading the main app file. Put all of
-// your application logic in there.
-requirejs(['test']);
+// // Start loading the main app file. Put all of
+// // your application logic in there.
+// requirejs(['test']);
+
+// require([], function() {
+//     console.log('run app');
+// })
+
+requirejs(['jquery', 'test'], function($, test) {
+    console.log('run app js');
+    console.log(test.add(1, 4));
+})
