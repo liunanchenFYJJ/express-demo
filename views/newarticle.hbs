@@ -9,13 +9,31 @@
         html {
             font-size: 16px;
         }
-        .btn-lg {
+        #transition {
             width: 98%;
             border-radius: 4px;
             height: 3.8rem;
             position: absolute;
             left: 0;
             transform: translate(1%, 20%);
+            transition: background 1s ease;
+        }
+        .text-default {
+            color: #fff;
+            display: inline-block;
+        }
+        .text-new {
+            display: none;
+        }
+        #transition:hover .text-new{
+            color: #337ab7;
+            display: inline-block;
+        }
+        #transition:hover .text-default{
+            display: none;
+        }
+        #transition:hover {
+            background: white;
         }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +41,10 @@
 </head>
 <body>
     <textarea name="content" id="editor"></textarea>
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">submit</button>
+    <button id="transition" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        <span class="text-default">ready?</span>
+        <span class="text-new">submit</span>
+    </button>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
