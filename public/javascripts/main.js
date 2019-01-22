@@ -1,21 +1,20 @@
 requirejs.config({
-    baseUrl: '/lib',
-    paths: {
-        jquery: 'jquery.min',
-        bootstrap: 'bootstrap.min',
-        // showdown: 'showdown'
-    },
-    shim: {
-        jquery: {
+  baseUrl: 'lib',
+  paths: {
+      jquery: 'jquery.min',
+      bootstrap: 'bootstrap.min',
+  },
+  shim: {
+      'jquery': {
           exports: 'jquery'
-        },
-        bootstrap: {
-          deps: ['jquery']
-        }
-    }
+      },
+      bootstrap: {
+        deps: ['jquery']
+      }
+  }
 });
 
-requirejs(['jquery', 'bootstrap'], function($) {
+requirejs(['jquery'], function($) {
   $(function() {
     $('li').each(function() {
       let path_name = window.location.href.split('/')[3];

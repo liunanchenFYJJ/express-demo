@@ -19,45 +19,10 @@
             transform: translate(3%, 50%);
         }
     </style>
+    <script data-main="/javascripts/newarticle" src="/lib/require.js" defer async="true"></script>
 </head>
 <body>
     <textarea name="content" id="editor"></textarea>
     <button id="submit">submit</button>
-    {{!-- <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script> --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
-    <script>
-        $(function() {
-            let myEditor = ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-
-            $('#submit').on('click', function() {
-                myEditor.then( editor => {
-                    console.log(editor.getData());
-                    // todo: 正则来验证输入合法性
-                    if (editor.getData() == '<p>&nbsp;</p>') {
-                        return;
-                    };
-                    $.ajax({
-                        url: `http://${location.host}/addArticle`,
-                        data: {
-                            article: editor.getData(),
-                            createBy: 'cln'
-                        },
-                        type: 'POST',
-                        success: function(e) {
-                            console.log(e);
-                            window.location.href = '/';
-                        },
-                        error: function() {
-                            console.log(e);
-                        }
-                    })
-                } )
-            })
-        })
-    </script>
 </body>
 </html>
