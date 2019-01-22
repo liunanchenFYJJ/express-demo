@@ -9,9 +9,9 @@ requirejs.config({
 requirejs(['jquery', 'handlebars'], function($, Handlebars) {
   $(function() {
     // timeformat
-    // Handlebars.registerHelper("timeformat", function(time) {
-    //   return time.substr(0, time.length - 14);
-    // })
+    Handlebars.registerHelper("timeformat", function(time) {
+      return time.substr(0, time.length - 6);
+    })
     // 模版
     let template = Handlebars.compile($('#context').html());
 
@@ -26,7 +26,7 @@ requirejs(['jquery', 'handlebars'], function($, Handlebars) {
         $('#body').height() > window.innerHeight - 40 ? $('#body').css('overflow', 'auto').height(window.innerHeight - 80) : $('#body').height('auto');
         // handlebars渲染纯文本，手动渲染富文本
         $('.panel-body').each(function(i) {
-          $(this).html(data.data[i].article);
+          $(this).html(data.data[i].content);
         });
       },
       error: function(error) {

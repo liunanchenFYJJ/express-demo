@@ -123,11 +123,13 @@ app.post('/adddiary', upload.array(), function(req, res, next) {
 app.post('/addArticle', upload.array(), function(req, res, next) {
   let addArticle_sql = `INSERT INTO express_demo_article(
     express_demo_article.articleId,
-    express_demo_article.article,
+    express_demo_article.title,
+    express_demo_article.content,
     express_demo_article.createBy) 
   VALUES(
     CURRENT_TIME,
-    "${req.body.article}",
+    "${req.body.title}",
+    "${req.body.content}",
     "${req.body.createBy}")`;
   mysql.query(addArticle_sql, output);
   function output(data) {
