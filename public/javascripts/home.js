@@ -12,6 +12,10 @@ requirejs(['jquery', 'handlebars'], function($, Handlebars) {
     Handlebars.registerHelper("timeformat", function(time) {
       return time.substr(0, time.length - 6);
     })
+    //testbtn
+    let isbtn = true;
+    let btnTest = Handlebars.compile($('#addNewArticle').html());
+    btnTest(isbtn);
     // 模版
     let template = Handlebars.compile($('#context').html());
 
