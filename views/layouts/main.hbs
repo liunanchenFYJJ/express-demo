@@ -10,13 +10,7 @@
   <link rel="stylesheet" href="/stylesheets/home.css">
 </head>
 <body>
-  <ul class="nav nav-tabs nav-justified">
-    <li role="presentation" class=""><a href="/">Home</a></li>
-    {{!-- <li role="presentation" class=""><a href="/profile">Profile</a></li> --}}
-    {{!-- <li role="presentation" class=""><a href="/about">About</a></li> --}}
-    <li role="presentation" class=""><a href="/msgboard">MessageBorad</a></li>
-    <li role="presentation" class=""><a href="/chatroom">Chatroom</a></li>
-  </ul>
+  {{>header}}
   {{{body}}}
   {{!-- <script data-main="/javascripts/main" src="/lib/require.js" defer async="true"></script> --}}
 </body>
