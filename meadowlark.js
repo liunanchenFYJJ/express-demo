@@ -45,6 +45,12 @@ app.use('/msgboard', msgboardRouter);
 app.use('/newarticle', newarticleRouter);
 app.use('/svgplayground', svgplaygroundRouter);
 
+// 文章详情
+app.use('/article/:articleId', function(req, res) {
+  let {articleId: id} = req.params;
+  res.render('article', {id});
+});
+
 
 app.get('/profile', function(req, res) {
   res.render('profile');
@@ -151,6 +157,8 @@ app.get('/getArticleList', function(req, res, next) {
     });
   }
 });
+
+
 
 // 区别于普通页面，中间件
 // 404

@@ -10,7 +10,7 @@ requirejs(['jquery', 'handlebars'], function($, Handlebars) {
   $(function() {
     // timeformat
     Handlebars.registerHelper("timeformat", function(time) {
-      return time.substr(0, time.length - 6);
+      return time.substr(0, time.length - 7);
     })
     //testbtn
     let isbtn = true;
@@ -19,6 +19,7 @@ requirejs(['jquery', 'handlebars'], function($, Handlebars) {
     // 模版
     let template = Handlebars.compile($('#context').html());
 
+    // 获取文章列表
     $.ajax({
       type: 'get',
       url: `http://${location.host}/getArticleList`,
@@ -43,9 +44,36 @@ requirejs(['jquery', 'handlebars'], function($, Handlebars) {
       window.location.href = '/newarticle';
     });
 
+
     //
     $(window).resize(function() {
       window.location.reload();
     });
+
+    //
+    $('.btn btn-primary btn-xs learnmore').on('click', function() {
+      console.log('sadf');
+    });
   });
 })
+
+// 文章详情
+function learnmore(e) {
+  // childNodes vs. children
+  console.log(e.parentNode.parentNode);
+  console.log(e.parentNode.parentNode.childNodes);
+  console.log(e.parentNode.parentNode.children[0].children[1].innerHTML);
+  let id = e.parentNode.parentNode.children[0].children[1].innerHTML;
+  // 跳转article详情
+  window.location.href = `/article/${id}`;
+  // $.ajax({
+  //   url: `/article/${id}`,
+  //   type: 'GET',
+  //   success: function(e) {
+  //     console.log(e);
+  //   },
+  //   error: function() {
+
+  //   }
+  // })
+}
