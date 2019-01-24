@@ -13,9 +13,9 @@ requirejs(['jquery', 'handlebars'], function($, Handlebars) {
       return time.substr(0, time.length - 7);
     })
     //testbtn
-    let isbtn = true;
-    let btnTest = Handlebars.compile($('#addNewArticle').html());
-    btnTest(isbtn);
+    // let isbtn = true;
+    // let btnTest = Handlebars.compile($('#addNewArticle').html());
+    // btnTest(isbtn);
     // 模版
     let template = Handlebars.compile($('#context').html());
 
