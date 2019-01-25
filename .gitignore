@@ -1,4 +1,6 @@
 node_modules
-.DS_Store
+*/.DS_Store
 .idea
 yarn-error.log
+.sass-cache
+/public/stylesheets/css
