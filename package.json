@@ -8,7 +8,8 @@
     "prod_mac": "NODE_ENV=prod node meadowlark",
     "pm2": "pm2 start pm2.json --env env",
     "pm2_prod": "pm2 start pm2.json --env prod",
-    "test": "jest"
+    "test": "jest",
+    "sass_watch": "node-sass -w -r ./public/stylesheets/sass/ -o ./public/stylesheets/css/"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -24,6 +25,9 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "jest": "^23.6.0"
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2",
+    "jest": "^23.6.0",
+    "node-sass": "^4.11.0"
   }
 }

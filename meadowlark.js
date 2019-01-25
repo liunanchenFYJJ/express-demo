@@ -48,7 +48,14 @@ app.use('/svgplayground', svgplaygroundRouter);
 // 文章详情
 app.use('/article/:articleId', function(req, res) {
   let {articleId: id} = req.params;
-  res.render('article', {id});
+  let getArticleById = `SELECT * from express_demo_article where articleId = '${id}';`
+  mysql.query(getArticleById, output);
+  function output(data) {
+    res.json({
+      data: data
+    });
+  }
+  // res.render('article', {id});
 });
 
 

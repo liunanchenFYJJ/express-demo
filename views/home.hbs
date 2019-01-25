@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/stylesheets/home.css">
 <div class="row">
   {{!-- <div class="col-md-2 col-sm-3 col-xs-4">
     <img src="/images/cat.png" alt="">
@@ -17,7 +18,7 @@
   \{{#each this}}
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title" style="display:inline-block;">\{{title}}</h3><p style="float:right;display:inline-block;">\{{timeformat articleId}}</p>
+        <h3 class="panel-title">\{{title}}</h3><p>\{{timeformat articleId}}</p>
       </div>
       <div class="panel-body">
         {{!-- \{{article}} --}}
@@ -29,23 +30,3 @@
     </div>
   \{{/each}}
 </script>
-<style>
-  html, body, .row {
-    height: 100%;
-  }
-  #body {
-    height: 100% !important;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-  .panel-default {
-    min-width: 400px;
-    height: 90% !important; // 为什么一定要加！important 才生效？
-  }
-  .panel-body {
-    height: calc(100% - 81px) !important;
-  }
-</style>
