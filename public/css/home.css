@@ -11,7 +11,7 @@ html, body, .row {
 }
 .panel-default {
     min-width: 400px;
-    height: 90% !important; /*为什么一定要加！important 才生效？*/
+    height: 80% !important; /*为什么一定要加！important 才生效？*/
 }
 .panel-body {
     height: calc(100% - 81px) !important;

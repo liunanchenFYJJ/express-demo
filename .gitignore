@@ -3,4 +3,3 @@ node_modules
 .idea
 yarn-error.log
 .sass-cache
-/public/stylesheets/css

@@ -1,5 +1,5 @@
 requirejs.config({
-  baseUrl: 'lib',
+  baseUrl: 'js/lib',
   paths: {
     jquery: 'jquery.min',
     handlebars: 'handlebars.min'
@@ -8,6 +8,9 @@ requirejs.config({
 
 requirejs(['jquery', 'handlebars'], function($, Handlebars) {
   $(function() {
+    let a = {q: 1};
+    let is = $.isEmptyObject(a);
+    console.log(is);
     // timeformat
     Handlebars.registerHelper("timeformat", function(time) {
       return time.substr(0, time.length - 7);
