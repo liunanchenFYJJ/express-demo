@@ -19,9 +19,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // static中间件 public文件夹中静态资源
 app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${__dirname}/dist`));
 // 视图引擎handlebars
 const handlebars = require('express3-handlebars').create({
-  defaultLayout: 'main',
+  defaultLayout: 'layout',
   extname: '.hbs'
 });
 app.engine('.hbs', handlebars.engine);
