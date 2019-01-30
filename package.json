@@ -10,7 +10,7 @@
     "pm2_prod": "pm2 start pm2.json --env prod",
     "test": "jest",
     "build_sass": "node-sass public/css -o dist/css",
-    "watch_sass": "node-sass -w -r public/css/sass -o dist/css"
+    "watch_sass": "node-sass -w -r public/css -o dist/css"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

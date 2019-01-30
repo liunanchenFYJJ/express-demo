@@ -7,14 +7,21 @@
   <title>home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-  {{>header}}
+  <div class="row header">
+    <div class="col-md-10 col-sm-9 col-xs-8 col-md-offset-1">
+      {{>header}}
+    </div>
+  </div>
   {{{body}}}
-  {{>footer}}
-  {{!-- <script data-main="/javascripts/main" src="/lib/require.js" defer async="true"></script> --}}
+  {{!-- <div class="row footer">
+    <div class="col-md-10 col-sm-9 col-xs-8 col-md-offset-1"> --}}
+      {{>footer}}
+    {{!-- </div>
+  </div> --}}
+  {{!-- js主入口 --}}
+  <script data-main="js/main" src="js/lib/require.js" defer async="true"></script>
 </body>
 </html>

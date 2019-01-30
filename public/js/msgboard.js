@@ -1,5 +1,5 @@
 requirejs.config({
-  baseUrl: 'lib',
+  baseUrl: 'js/lib',
   paths: {
     jquery: 'jquery.min',
     handlebars: 'handlebars.min'
