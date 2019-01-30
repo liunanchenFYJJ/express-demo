@@ -8,14 +8,21 @@
         flex-direction: row
         justify-content: center
         align-items: center
-    //     .panel-default 
-    //         min-width: 400px
-    //         height: 70% !important
-    //         .panel-heading
-    //             p
-    //                 float:right
-    //                 display:inline-block
-    //             h3
-    //                 display:inline-block
-    //         .panel-body 
-    //             height: calc(100% - 81px) !important
+        .panel-default
+            // padding: 10px
+            min-width: 400px
+            // transition: all 0.5s linear
+            &:nth-child(odd)
+                height: 70% !important
+            &:nth-child(even)
+                height: 80% !important
+            &:hover
+                height: 80% !important
+            .panel-heading
+                p
+                    float:right
+                    display:inline-block
+                h3
+                    display:inline-block
+            .panel-body 
+                height: calc(100% - 81px) !important

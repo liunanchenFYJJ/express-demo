@@ -7,3 +7,13 @@
     flex-direction: row;
     justify-content: center;
     align-items: center; }
+    .body #body .panel-default {
+      min-width: 400px; }
+      .body #body .panel-default:nth-child(odd) {
+        height: 70% !important; }
+      .body #body .panel-default:nth-child(even) {
+        height: 80% !important; }
+      .body #body .panel-default:hover {
+        height: 80% !important; }
+      .body #body .panel-default .panel-body {
+        height: calc(100% - 81px) !important; }
