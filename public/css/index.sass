@@ -7,3 +7,23 @@ html
     background-color: #000
     height: 100%
     overflow: hidden
+    #cover
+      height: 100%
+      width: 100%
+      position: absolute
+      top: 0
+      left: 0
+      background-color: #000
+      opacity: 0
+      z-index: -1
+      animation: shadow 0.8s cubic-bezier(.15,.94,.58,.4) 1
+      @keyframes shadow
+        0%, 10%
+          opacity: 1
+          z-index: 1
+        40%, 60%
+          opacity: 0.5
+          z-index: 1
+        100%
+          opacity: 0
+          z-index: -1

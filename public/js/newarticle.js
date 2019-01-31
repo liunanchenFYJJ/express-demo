@@ -3,7 +3,7 @@ requirejs.config({
     paths: {
         jquery: 'jquery.min',
         bootstrap: 'bootstrap.min',
-        ckeditor: 'https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor'
+        ckeditor: 'ckeditor'
     },
     shim: {
         jquery: {
@@ -16,26 +16,6 @@ requirejs.config({
 });
 
 requirejs(['jquery', 'ckeditor', 'bootstrap'], function($, ClassicEditor) {
-    // 状态改变，执行
-    document.onreadystatechange = documentReadyState;
-
-    console.log(document.readyState);
-    function documentReadyState() {
-        if (document.readyState == 'complete') {
-            complete();
-        }
-        if (documet.readyState == 'interactive') {
-            loading();
-        }
-    }
-
-    function loading() {
-        console.log('loading...');
-    }
-
-    function complete() {
-        console.log('complete!');
-    }
 
     $(function() {
         let myEditor = ClassicEditor
