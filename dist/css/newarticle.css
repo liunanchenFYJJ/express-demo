@@ -1,0 +1,22 @@
+#transition {
+  width: 98%;
+  border-radius: 4px;
+  height: 2.4rem;
+  position: absolute;
+  left: 0;
+  transform: translate(1%, 20%);
+  transition: background 1s ease; }
+  #transition .text-default {
+    display: inline-block; }
+  #transition .text-new {
+    display: none; }
+  #transition:hover {
+    background: #fff; }
+    #transition:hover .text-default {
+      display: none; }
+    #transition:hover .text-new {
+      color: #337ab7;
+      display: inline-block; }
+
+#title {
+  margin-bottom: 10px; }

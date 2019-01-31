@@ -9,20 +9,49 @@
         justify-content: center
         align-items: center
         .panel-default
-            // padding: 10px
             min-width: 400px
-            // transition: all 0.5s linear
+            margin: 0.5rem
             &:nth-child(odd)
                 height: 70% !important
+                .panel-heading
+                    p
+                        float: right
+                        display: inline-block
+                    h3
+                        display: inline-block
+                    button
+                        position: absolute
+                        top: 3rem
+                        color: #000
+                        background-color: #000
+                        border-color: #000
+                        transition: all 0.5s linear
+                    &:hover
+                        button
+                            color: #fff
+                            background-color: #337ab7
+                            border-color: #337ab7
+                            transform: translateY(8rem)
             &:nth-child(even)
                 height: 80% !important
-            &:hover
-                height: 80% !important
-            .panel-heading
-                p
-                    float:right
-                    display:inline-block
-                h3
-                    display:inline-block
-            .panel-body 
+                .panel-heading
+                    p
+                        float: right
+                        display: inline-block
+                    h3
+                        display: inline-block
+                    button
+                        position: absolute
+                        top: 3rem
+                        color: #000
+                        background-color: #000
+                        border-color: #000
+                        transition: all 0.3s linear
+                    &:hover
+                        button
+                            color: #fff
+                            background-color: #337ab7
+                            border-color: #337ab7
+                            transform: translateY(4.5rem)
+            .panel-body
                 height: calc(100% - 81px) !important

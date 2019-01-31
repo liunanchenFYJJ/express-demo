@@ -51,10 +51,6 @@ requirejs(['jquery', 'handlebars'], function($, Handlebars) {
       window.location.reload();
     });
 
-    //
-    $('.btn btn-primary btn-xs learnmore').on('click', function() {
-      console.log('sadf');
-    });
   });
 })
 
