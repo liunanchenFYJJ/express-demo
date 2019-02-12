@@ -8,7 +8,6 @@ requirejs.config({
 
 requirejs(['jquery', 'handlebars'], function($, Handlebars) {
   $(function() {
-    console.log('home')
     // timeformat
     Handlebars.registerHelper("timeformat", function(time) {
       return time.substr(0, time.length - 7);

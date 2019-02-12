@@ -1,5 +1,8 @@
 .footer .list-group {
   text-align: center; }
+  .footer .list-group a:hover {
+    color: #fff;
+    text-decoration: none; }
   .footer .list-group .list-group-item {
     display: inline-block; }
     .footer .list-group .list-group-item a {
