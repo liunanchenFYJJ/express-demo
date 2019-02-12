@@ -2,4 +2,6 @@
   background-color: #000; }
 
 .header a {
-  color: RED; }
+  color: #fff; }
+  .header a:hover {
+    color: #000; }
