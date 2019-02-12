@@ -1,5 +1,11 @@
 {
     "home": {
         "title": "你好 世界!"
+    },
+    "header": {
+        "home": "主页"
+    },
+    "footer": {
+        "add": "新增文章"
     }
 }

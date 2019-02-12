@@ -2,11 +2,14 @@ requirejs.config({
   baseUrl: 'js/lib',
   paths: {
     jquery: 'jquery.min',
-    handlebars: 'handlebars.min'
+    handlebars: 'handlebars.min',
+    utilmodule: '../utilmodule'
   }
 });
 
-requirejs(['jquery', 'handlebars'], function($, Handlebars) {
+requirejs(['jquery', 'handlebars', 'utilmodule'], function($, Handlebars, utilmodule) {
+  utilmodule.headerActive();
+
   $(function() {
     // timeformat
     Handlebars.registerHelper("timeformat", function(time) {

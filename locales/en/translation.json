@@ -1,5 +1,11 @@
 {
     "home": {
         "title": "hello world!"
+    },
+    "header": {
+        "home": "Home"
+    },
+    "footer": {
+        "add": "add article"
     }
 }
