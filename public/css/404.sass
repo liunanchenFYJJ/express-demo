@@ -14,28 +14,28 @@ body
         &:hover
             animation-play-state: paused
             cursor: pointer
-@keyframes divanimation
-    0%
-        opacity: 0
-        transform: scale(0.5)
-    20%
-        opacity: 1
-        transform: scale(1)
-        transform: rotateX(90deg)
-    25%, 80%
-        opacity: 1
-        transform: scale(1.5)
-    100%
-        opacity: 0
-        transform: scale(0.5)
-        transform: rotateX(-90deg)
+        @keyframes divanimation
+            0%
+                opacity: 0
+                transform: scale(0.5)
+            20%
+                opacity: 1
+                transform: scale(1)
+                transform: rotateX(90deg)
+            25%, 80%
+                opacity: 1
+                transform: scale(1.5)
+            100%
+                opacity: 0
+                transform: scale(0.5)
+                transform: rotateX(-90deg)
         h1
             color: #e9b59f
             animation: h1animation 4s linear infinite
-@keyframes h1animation
-    0%
-        transform: rotateX(90deg)
-    40%, 90%
-        transform: none
-    100%
-        transform: rotateX(-90deg)
+            @keyframes h1animation
+                0%
+                    transform: rotateX(90deg)
+                40%, 90%
+                    transform: none
+                100%
+                    transform: rotateX(-90deg)
