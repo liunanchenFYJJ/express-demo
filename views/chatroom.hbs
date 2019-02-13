@@ -1,32 +1,26 @@
-<!doctype html>
-<html>
-  <head>
-    <title>chatroom</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/chatroom.css">
-    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
-  </head>
-  <body>
+<link rel="stylesheet" href="/css/chatroom.css">
+<div class="row body">
+  <div id="body" class="col-md-10 col-sm-9 col-xs-8 col-md-offset-1">
     <div id="mask"></div>
     <div id="user">
-      <h3 class="title">please enter your name</h3>
+      <h3 class="title">{{t "chatroom.fillName"}}</h3>
       <input name="username" type="text" value="" autofocus>
     </div>
     <ul id="messages"></ul>
     <form id="form" action="">
-      <div style="margin-bottom: 0px" class="form-group">
+      <div class="form-group">
         <label class="sr-only" for="exampleInputName2">text</label>
         <div class="row">
           <div class="col-md-11 col-sm-11 col-xs-11">
             <input type="text" class="form-control" id="m" autocomplete="off" placeholder="">
           </div>
-          <div class="sbtn" class="col-md-1 col-sm-1 col-xs-1">
-            <button class="btn btn-primary">Send</button>
+          <div class="col-md-1 col-sm-1 col-xs-1">
+            <button class="btn btn-primary">{{t "chatroom.sendbtn"}}</button>
           </div>
         </div>
       </div>
     </form>
-    <script src="/socket.io/socket.io.js"></script>
-    <script data-main="/javascripts/chatroom" src="/lib/require.js" defer async="true"></script>
-  </body>
-</html>
+  </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script data-main="/js/chatroom" src="js/lib/require.js" defer async="true"></script>

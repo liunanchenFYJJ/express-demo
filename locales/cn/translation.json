@@ -10,6 +10,10 @@
         "cancel": "取消",
         "confirm": "确定"
     },
+    "chatroom": {
+        "fillName": "请填写您的名字",
+        "sendbtn": "发送"
+    },
     "header": {
         "home": "主页",
         "chatroom": "聊天室",

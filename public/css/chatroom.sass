@@ -1,0 +1,60 @@
+.body
+  height: 90%
+  width: 100%
+  margin: 0
+  #body
+    height: 100%
+    #mask
+      width: 100%
+      height: 100%
+      background: url(/images/chatroombg.jpg) no-repeat
+      z-index: 10
+      filter:  alpha (opacity=50)
+      opacity: 0.3
+      position: absolute
+      top: 0
+      left: 0
+    #user
+      width: 400px
+      height: 300px
+      background-color: #000
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      text-align: center
+      padding-top: 100px
+      z-index: 20
+      border-radius: 5px
+      .title
+        color: white
+      input
+        border: none
+        border-bottom: 2px solid white
+        background-color: transparent
+        outline: none
+        text-align: center
+        caret-color: white
+        font-size: 20px
+        color: white
+    #messages
+      list-style-type: none
+      margin: 0
+      padding: 0
+      li
+        border-radius: 4px
+        padding: 5px 10px 
+        margin: 20px 20px 20px 20px
+        &:nth-child(odd)
+          background: #eee
+        &:nth-child(even)
+          background: lightblue
+        p
+          color: red
+          display: inline-block
+    form
+      position: fixed
+      bottom: 67px
+      width: 80%
+      .col-md-1
+        padding-left: 0px

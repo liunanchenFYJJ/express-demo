@@ -10,6 +10,10 @@
         "cancel": "Cancel",
         "confirm": "Save"
     },
+    "chatroom": {
+        "fillName": "please enter your name",
+        "sendbtn": "Send"
+    },
     "header": {
         "home": "Home",
         "chatroom": "Chatroom",

@@ -1,8 +1,9 @@
 requirejs.config({
-    baseUrl: '/lib',
+    baseUrl: 'js/lib',
     paths: {
         jquery: 'jquery.min',
-        bootstrap: 'bootstrap.min'
+        bootstrap: 'bootstrap.min',
+        utilmodule: '../utilmodule'
     },
     shim: {
         jquery: {
@@ -14,7 +15,8 @@ requirejs.config({
     }
 });
 
-requirejs(['jquery'], function($) {
+requirejs(['jquery', 'utilmodule'], function($, utilmodule) {
+    utilmodule.headerActive();
     $(function() {
         // 每次刷新页面清除 localstorage
         window.onbeforeunload = function() {
@@ -46,7 +48,7 @@ requirejs(['jquery'], function($) {
         
         socket.on('loginsuccess', function(data) {
             console.log(`welcome ${data.username}`);
-            $('#messages').append($('<li>').html(`<h3>welcome!</h3><p style="color: red; display: inline-block">${data.username}</p>`));
+            $('#messages').append($('<li>').html(`<span>welcome!</span><p>${data.username}</p>`));
         })
         
         $('form').submit(function() {
@@ -57,7 +59,7 @@ requirejs(['jquery'], function($) {
             return false;
         });
         socket.on('chatroom', function(data) {
-            let userstr = $('<li>').html(`<p style="color: red; display: inline-block">${data.username}:</p> ${data.msg}`);
+            let userstr = $('<li>').html(`<p>${data.username}:</p> ${data.msg}`);
             $('#messages').append(userstr);
         });
         
