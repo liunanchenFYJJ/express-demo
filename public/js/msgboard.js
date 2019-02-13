@@ -2,12 +2,21 @@ requirejs.config({
   baseUrl: 'js/lib',
   paths: {
     jquery: 'jquery.min',
+    bootstrap: 'bootstrap.min',
     handlebars: 'handlebars.min',
     utilmodule: '../utilmodule'
+  },
+  shim: {
+    'jquery': {
+      exports: 'jquery'
+    },
+    bootstrap: {
+      deps: ['jquery']
+    }
   }
 });
 
-requirejs(['jquery', 'handlebars', 'utilmodule'], function($, Handlebars, utilmodule) {
+requirejs(['jquery', 'handlebars', 'utilmodule', 'bootstrap'], function($, Handlebars, utilmodule) {
   utilmodule.headerActive();
   
   $(function() {
@@ -20,7 +29,7 @@ requirejs(['jquery', 'handlebars', 'utilmodule'], function($, Handlebars, utilmo
 
     $.ajax({
       type: 'get',
-      url: `http://${location.host}/getdiary`,
+      url: `http://${location.host}/getmessage`,
       data: { page: 1 },
       success: function(data) {
         // 数据
@@ -36,9 +45,33 @@ requirejs(['jquery', 'handlebars', 'utilmodule'], function($, Handlebars, utilmo
     });
 
     // resize
-    $(window).resize(function() {
-      window.location.reload();
-    });
+    // $(window).resize(function() {
+    //   window.location.reload();
+    // });
+
+    $('#submit').click(function() {
+      let name = $('#name').val();
+      let content = $('#content').val();
+      if (name == '' || content == '') {
+        console.log('不可为空');
+        return;
+      }
+      $.ajax({
+        type: 'post',
+        url: `http://${location.host}/addmessage`,
+        data: {
+          name: name,
+          content: content
+        },
+        success: function(e) {
+          // $('#myModal').modal('hide');
+          window.location.reload();
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    })
 
   });
 });

@@ -2,8 +2,18 @@
     "home": {
         "title": "hello world!"
     },
+    "msgBorad": {
+        "addMSG": "leave me a message",
+        "title": "say something",
+        "yourName": "your name",
+        "yourWords": "your words",
+        "cancel": "Cancel",
+        "confirm": "Save"
+    },
     "header": {
-        "home": "Home"
+        "home": "Home",
+        "chatroom": "Chatroom",
+        "messageborad": "MessageBorad"
     },
     "footer": {
         "add": "add article"

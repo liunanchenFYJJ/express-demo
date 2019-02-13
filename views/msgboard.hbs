@@ -1,22 +1,19 @@
-<div class="row" style="padding-top: 20px;">
-  <div class="col-md-2 col-sm-3 col-xs-4">
-    <img src="/images/comment.gif" alt="">
-    <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">添加留言</button>
-  </div>
-  <div id="body" style="overflow:auto;" class="col-md-10 col-sm-9 col-xs-8"></div>
+<link rel="stylesheet" href="/css/msgBorad.css">
+<div class="row body">
+  <button type="button" class="btn btn-primary btn-xs col-md-1 col-md-offset-1" data-toggle="modal" data-target="#mModal">{{t "msgBorad.addMSG"}}</button>
+  <div id="body" class="col-md-9 col-sm-9 col-xs-8"></div>
 </div>
-{{> markdownmodal}}
-<script data-main="js/msgboard" src="js/lib/require.js" defer async="true"></script>
+{{> addMessage}}
+<script data-main="js/msgBoard" src="js/lib/require.js" defer async="true"></script>
 <script id="context" type="text/x-handlebars-template">
   \{{#each this}}
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title" style="display:inline-block;">\{{name}}</h3><p style="float:right;display:inline-block;">\{{createDate}}</p>
+        <h3 class="panel-title">\{{name}}</h3>
+        <p>\{{createDate}}</p>
       </div>
       <div class="panel-body">
         \{{{content}}}
-        {{!-- <button style="float:right;display:inline-block;" type="button" class="btn btn-primary btn-xs">learn more</button> --}}
-        {{!-- <button style="float:right;display:inline-block;" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal">edit</button> --}}
       </div>
     </div>
   \{{/each}}

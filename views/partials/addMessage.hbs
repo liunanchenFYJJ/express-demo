@@ -1,0 +1,25 @@
+<!-- Modal -->
+<div class="modal fade" id="mModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{t "msgBorad.title"}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div style="margin-bottom: 1em;" class="col-md-12 col-sm-12 col-xs-12">
+            <input type="text" id="name" class="form-control span12" placeholder="{{t "msgBorad.yourName"}}" aria-describedby="basic-addon1">
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <textarea id="content" style="height:200px;width:100%;" onkeyup="" placeholder="{{t "msgBorad.yourWords"}}..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{t "msgBorad.cancel"}}</button>
+        <button id="submit" type="button" class="btn btn-primary">{{t "msgBorad.confirm"}}</button>
+      </div>
+    </div>
+  </div>
+</div>

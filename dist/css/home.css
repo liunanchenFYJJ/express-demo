@@ -1,5 +1,6 @@
 .body {
-  height: 90%; }
+  height: 90%;
+  overflow-x: auto; }
   .body #body {
     height: 100% !important;
     padding: 0;

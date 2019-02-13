@@ -44,7 +44,7 @@ requirejs(['jquery', 'handlebars', 'utilmodule'], function($, Handlebars, utilmo
 
     // 新增文章
     $('#addNewArticle').on('click', function() {
-      window.location.href = '/newarticle';
+      window.location.href = '/addarticle';
     });
 
 

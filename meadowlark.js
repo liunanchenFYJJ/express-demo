@@ -55,15 +55,13 @@ app.set('port', process.env.PORT || 3000);
 const indexRouter = require('./routes/index');
 const chatroomRouter = require('./routes/chatroom');
 const msgboardRouter = require('./routes/msgboard');
-const newarticleRouter = require('./routes/newarticle');
-const aboutRouter = require('./routes/about');
+const addarticleRouter = require('./routes/addarticle');
 const svgplaygroundRouter = require('./routes/svgplayground');
 
 app.use('/', indexRouter);
 app.use('/chatroom', chatroomRouter);
-app.use('/about', aboutRouter);
 app.use('/msgboard', msgboardRouter);
-app.use('/newarticle', newarticleRouter);
+app.use('/addarticle', addarticleRouter);
 app.use('/svgplayground', svgplaygroundRouter);
 
 // 文章详情
@@ -77,15 +75,6 @@ app.use('/article/:articleId', function(req, res) {
     });
   }
   // res.render('article', {id});
-});
-
-
-app.get('/profile', function(req, res) {
-  res.render('profile');
-});
-
-app.get('/newsletter', function(req, res) {
-  res.render('newsletter');
 });
 
 // app.post('/process', function(req, res){
@@ -103,10 +92,10 @@ app.get('/newsletter', function(req, res) {
 //   console.log(req.query);
 //   res.status(200).send('success');
 // });
-app.get('/getdiary', function(req, res, next) {
-  // let getdiary_sql = `SELECT * FROM express_demo_diary LIMIT ${(req.query.page-1)*8},8;`
-  let getdiary_sql = `SELECT * FROM express_demo_diary ORDER BY createDate DESC;`
-  mysql.query(getdiary_sql, output);
+app.get('/getmessage', function(req, res, next) {
+  // let getmessage_sql = `SELECT * FROM express_demo_message LIMIT ${(req.query.page-1)*8},8;`
+  let getmessage_sql = `SELECT * FROM express_demo_message ORDER BY createDate DESC;`
+  mysql.query(getmessage_sql, output);
   function output(data) {
     res.json({
       data: data,
@@ -132,18 +121,20 @@ app.post('/getbooklist', upload.array(), function(req, res, next) {
   }
 });
 
-app.post('/adddiary', upload.array(), function(req, res, next) {
-  let adddiary_sql = `INSERT INTO express_demo_diary(
-    express_demo_diary.id,
-    express_demo_diary.name,
-    express_demo_diary.content) 
+app.post('/addmessage', upload.array(), function(req, res, next) {
+  let addmessage_sql = `INSERT INTO express_demo_message(
+    express_demo_message.id,
+    express_demo_message.name,
+    express_demo_message.content,
+    express_demo_message.createDate) 
   VALUES(
     "${uuidv1()}",
     "${req.body.name}",
-    "${req.body.content}")`;
-  // console.log(adddiary_sql);
+    "${req.body.content}",
+    "2018-11-28 06:02:32")`;
+  // console.log(addmessage_sql);
   // console.log(req.body);
-  mysql.query(adddiary_sql, output);
+  mysql.query(addmessage_sql, output);
   function output(data) {
     // console.log(data[0]);
     res.json({
@@ -155,7 +146,7 @@ app.post('/adddiary', upload.array(), function(req, res, next) {
 
 // 增加新文章
 app.post('/addArticle', upload.array(), function(req, res, next) {
-  let addArticle_sql = `INSERT INTO express_demo_article(
+  let addNewArticle_sql = `INSERT INTO express_demo_article(
     express_demo_article.articleId,
     express_demo_article.title,
     express_demo_article.content,
@@ -165,7 +156,7 @@ app.post('/addArticle', upload.array(), function(req, res, next) {
     "${req.body.title}",
     "${req.body.content}",
     "${req.body.createBy}")`;
-  mysql.query(addArticle_sql, output);
+  mysql.query(addNewArticle_sql, output);
   function output(data) {
     res.json({
       data: data,

@@ -2,8 +2,18 @@
     "home": {
         "title": "你好 世界!"
     },
+    "msgBorad": {
+        "addMSG": "给我留言",
+        "title": "说点什么吧",
+        "yourName": "你的名字",
+        "yourWords": "想说的话",
+        "cancel": "取消",
+        "confirm": "确定"
+    },
     "header": {
-        "home": "主页"
+        "home": "主页",
+        "chatroom": "聊天室",
+        "messageborad": "留言墙"
     },
     "footer": {
         "add": "新增文章"
