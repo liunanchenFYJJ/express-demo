@@ -5,3 +5,4 @@ yarn-error.log
 .sass-cache
 dist
 *.missing.json
+models/*.js

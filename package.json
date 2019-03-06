@@ -14,7 +14,6 @@
     "watch_sass": "node-sass -w -r public/css -o dist/css"
   },
   "dependencies": {
-    "@types/node": "^11.10.4",
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
