@@ -12,9 +12,9 @@ const uuidv1 = require('uuid/v1');
 const mysql = require('./db/mysql');
 // process.env.NODE_ENV = 'dev';
 // console.log(mysql.query);
-const { User } = require('./models/User.ts');
-// let u = new User('jj')
-console.log(User);
+const { User } = require('./models/User');
+let u = new User('jj')
+console.log(u.sayName());
 
 // i18n
 i18next
