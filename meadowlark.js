@@ -3,6 +3,7 @@ const express = require('express');
 const i18next = require('i18next');
 const i18nextMiddleware = require('i18next-express-middleware');
 const Backend = require('i18next-node-fs-backend');
+//
 const app = express();
 // websocket socket.io
 const http = require('http').Server(app);
@@ -10,12 +11,13 @@ const io = require('socket.io')(http);
 // mysql
 const uuidv1 = require('uuid/v1');
 const mysql = require('./db/mysql');
-const mongodb = require('./db/mongodb')
+// mongodb
+const mongodb = require('./db/mongodb');
 // process.env.NODE_ENV = 'dev';
 // console.log(mysql.query);
-const { User } = require('./models/User');
-let u = new User('jj')
-console.log(u.sayName());
+// const { User } = require('./models/User');
+// let u = new User('jj')
+// console.log(u.sayName());
 
 // i18n
 i18next
@@ -30,16 +32,13 @@ i18next
     preload: ['en', 'cn'],
     saveMissing: true
   });
-
-
 // url编码
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const upload = multer();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// static中间件 public文件夹中静态资源
+app.use(bodyParser.urlencoded({ extended: true })); // 内建中间件
+// static内建中间件 public文件夹中静态资源可以直接访问
 app.use(express.static(`${__dirname}/public`));
 app.use(express.static(`${__dirname}/dist`));
 // 视图引擎handlebars
@@ -49,6 +48,7 @@ const handlebars = require('express3-handlebars').create({
 });
 app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
+
 app.use(i18nextMiddleware.handle(i18next));
 
 app.set('port', process.env.PORT || 3000);
@@ -192,7 +192,6 @@ app.use(function(req, res, next) {
 
 // 500
 app.use(function(err, req, res, next) {
-  // console.error(err.stack);
   res.status(500);
   res.render('500', { layout: null });
 });
