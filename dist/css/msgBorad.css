@@ -1,0 +1,25 @@
+.body {
+  height: 90%;
+  margin-top: 20px; }
+  .body .btn {
+    display: inline-block; }
+  .body #body .panel .panel-heading h3 {
+    display: inline-block; }
+  .body #body .panel .panel-heading p {
+    float: right;
+    display: inline-block; }
+
+#mModal .modal-body .row div:nth-child(1) {
+  margin-bottom: 1em; }
+
+#mModal .modal-body .row div #content {
+  height: 200px;
+  width: 100%; }
+
+#content {
+  border: solid #d3d3d3 1px;
+  border-radius: 5px;
+  padding: 6px 12px 6px 12px; }
+
+::-webkit-input-placeholder {
+  color: #999999; }
